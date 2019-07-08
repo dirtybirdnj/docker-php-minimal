@@ -1,7 +1,8 @@
 FROM php:7.1-apache
 
+COPY ./vendor /work/vendor
 COPY ./src /work/src
-#COPY ./.env /work/.env
+
 COPY /docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 COPY /docker/initdb.sql /docker-entrypoint-initdb.d/initdb.sql
 COPY /docker/php-custom.ini /usr/local/etc/php/conf.d/php-custom.ini
